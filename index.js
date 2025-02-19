@@ -21,7 +21,7 @@ document.querySelector("#upload1").addEventListener("change", async (e) => {
         try {
             const result = await window.electron.pdfToImg(pdfBuffer);
             if(result.cd == '0000') {
-                
+                console.log(result.base64);
             } else if(result.cd == '1000') {
 
             } else if(result.cd == '9999') {
@@ -29,6 +29,7 @@ document.querySelector("#upload1").addEventListener("change", async (e) => {
             } else {
 
             }
+            document.querySelector("#upload1").value = "";
             
         } catch(err) {
             console.error("pdf를 이미지로 변환 도중 에러 발생 : ", err);

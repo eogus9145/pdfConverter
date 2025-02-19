@@ -41,12 +41,16 @@ app.whenReady().then(() => {
     ipcMain.handle('pdfToImg', async (event, buffer, password = "") => {
       try {
         const pdfBuffer = Buffer.from(buffer);
-        const png = await pdfToPng(pdfBuffer, {
+        const pngs = await pdfToPng(pdfBuffer, {
           pdfFilePassword: password,
-          pagesToProcess: [1],
+          //pagesToProcess: [1],
         });
-        let pngBuffer = png[0].content;
-        let result = (await sharp(pngBuffer).toBuffer()).toString('base64');
+        let buffers = png.map(v => v.content);
+        let result = [];
+        for(let i=0; i<buffers.length; i++) {
+          let base64 = (await sharp(pngBuffer).toBuffer()).toString('base64');
+          result.push(base64);
+        }
         return {cd: '0000', msg: '성공', base64 : result};
       } catch(err) {
         if(err.name == 'PasswordException') {
