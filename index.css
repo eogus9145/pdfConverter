@@ -9,14 +9,14 @@
     box-sizing: border-box;
     font-family: "Noto Sans KR", serif;
     font-optical-sizing: auto;
+    margin: 0;
+    padding: 0;
 }
 body, html {
     width: 100%;
     height: 100%;
 }
 body {
-    padding: 0;
-    margin: 0;
     color: #444;
 }
 
@@ -218,4 +218,169 @@ input[type='file'] {
     background-color: #fff;
     z-index: 2;
     display: none;
+}
+
+.convertResult .uploadTitle {
+    margin : 0;
+}
+
+.result-slider {
+    width: 100%;
+    flex: 1;
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 4px;
+}
+
+.result-slider > div {
+    padding: 4px;
+    padding-bottom: 0;
+}
+
+.result-slider > div > img {
+    width: 100%;
+    border-radius: 4px;
+    padding: 4px;
+    background-color: #fff;
+    border: 1px solid;
+}
+
+.result-slider:has(iframe) {
+    display: block;
+    overflow: hidden;
+}
+
+.result-slider iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+}
+
+#result1 > .result-slider > div > img { border-color: #EF4444; }
+#result3 > .result-slider > div > img { border-color: #10B981; }
+#result2 > .result-slider > div > img { border-color: #9333EA; }
+
+
+
+.result-download {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items : center;
+    gap: 0.5rem;
+}
+
+.result-download > button {
+    flex: 1;
+    height: 50px;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #fff;
+}
+
+button:hover {
+    filter: brightness(95%);
+}
+#result1 .downBtn { background-color: #EF4444; }
+#result2 .downBtn { background-color: #10B981; }
+#result3 .downBtn { background-color: #9333EA; }
+
+.cancelBtn {
+    background-color: #777;
+}
+
+.scrollElement::-webkit-scrollbar {
+    width: 10px;
+    height: 14px;
+}
+.scrollElement::-webkit-scrollbar-thumb {
+    outline: none;
+    border-radius: 10px;
+    border: 4px solid transparent;
+    box-shadow: inset 6px 6px 0 rgba(34, 34, 34, 0.15);
+}
+
+.scrollElement::-webkit-scrollbar-thumb:hover {
+    border: 4px solid transparent;
+    box-shadow: inset 6px 6px 0 rgba(34, 34, 34, 0.3);
+}
+
+.scrollElement::-webkit-scrollbar-track {
+    box-shadow: none;
+    background-color: transparent;
+}
+
+.password, .download {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.passwordContent, .downloadContent {
+    padding: 3rem;
+    background-color: #fff;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    user-select: none;
+}
+
+.downloadContent {
+    width: 300px;
+    position: relative;
+}
+
+.password-title, .download-title {
+    text-align: center;
+}
+
+input[type=password] {
+    border: 1px solid #ccc;
+    outline: none;
+    width: 250px;
+    padding: 0.5rem;
+    border-radius: 4px;
+}
+.passBtn, .passCanBtn, .fileOpenBtn, .folderOpenBtn {
+    width: 80px;
+    border: none;
+    outline: none;
+    padding: 0.5rem;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+}
+.passBtn, .fileOpenBtn {
+    background-color: #777;
+}
+
+.passCanBtn, .folderOpenBtn {
+    background-color: #000;
+}
+
+.modalCloseBtn {
+    border: none;
+    line-height: 0;
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    color: #777;
 }
