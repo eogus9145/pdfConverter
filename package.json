@@ -19,10 +19,9 @@
       "index.js",
       "NotoSansKR-Regular.ttf"
     ],
-    "win": {
-      "target": "portable",
-      "defaultArch": "x64",
-      "icon": "favicon.ico"
+    "mac": {
+      "target": "dmg",
+      "icon": "favicon.icns"
     },
     "directories": {
       "output": "dist"
@@ -33,7 +32,8 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "electron": "^34.2.0"
+    "electron": "^34.2.0",
+    "electron-builder": "^25.1.8"
   },
   "dependencies": {
     "image-to-pdf": "^3.0.2",
