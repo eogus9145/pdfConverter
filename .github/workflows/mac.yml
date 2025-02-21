@@ -24,7 +24,7 @@ jobs:
       - name: Build & Package Electron App for macOS
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}  # GitHub Releases 업로드를 위한 토큰 설정
-        run: npm run electron-builder -- --mac
+        run: npm run build
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
